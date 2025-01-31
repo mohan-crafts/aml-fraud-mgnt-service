@@ -1,0 +1,20 @@
+import  com.txn.dto.Transaction;
+global com.txn.dto.Response response;
+
+dialect "mvel"
+
+rule "Checking Valid Transaction Amount"
+    when 
+        Transaction(amount < 5000)
+    then 
+        response.setStatus("Valid");
+        response.setReason("");
+end
+
+rule "Checking Transaction Amount"
+    when 
+        Transaction(amount > 5500)
+    then 
+        response.setStatus("suspicious");
+        response.setReason("Exceeds Maximum Txn limit");
+end

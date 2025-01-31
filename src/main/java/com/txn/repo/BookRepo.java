@@ -1,8 +1,8 @@
-package com.books.repo;
+package com.txn.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.books.entity.Book;
+import com.txn.entity.Book;
 
 public interface BookRepo extends JpaRepository<Book, Long> {
 		
